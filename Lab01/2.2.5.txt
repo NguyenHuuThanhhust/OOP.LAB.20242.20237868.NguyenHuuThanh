@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Calculator {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String strNum1 = scanner.nextLine();
+        String strNum2 = scanner.nextLine();
+        
+        double num1 = Double.parseDouble(strNum1);
+        double num2 = Double.parseDouble(strNum2);
+
+        double sum = num1 + num2;
+        System.out.println("Tong cua 2 so la: " + sum);
+
+        double difference = num1 - num2;
+        System.out.println("Hieu cua so thu 1 tru di so thu 2 la: " + difference);
+
+        double product = num1 * num2;
+        System.out.println("Tich cua 2 so la:" + product);
+
+        if (num2 != 0) {
+            double quotient = num1 / num2;
+            System.out.println("Thuong cua so thu 1 chia cho so thu 2 la:" + quotient);
+        } else {
+            System.out.println("Khong co phep chia cho 0");
+        }
+
+        scanner.close();
+    }
+}
