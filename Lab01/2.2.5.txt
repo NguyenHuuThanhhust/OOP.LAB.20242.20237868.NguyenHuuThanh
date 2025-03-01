@@ -1,32 +1,32 @@
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Calculator {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        String strNum1, strNum2;
+        String strNotification = "You've just entered: ";
 
-        String strNum1 = scanner.nextLine();
-        String strNum2 = scanner.nextLine();
-        
-        double num1 = Double.parseDouble(strNum1);
-        double num2 = Double.parseDouble(strNum2);
+        strNum1 = JOptionPane.showInputDialog(null, "Please input the first number:", "Input the first number", JOptionPane.QUESTION_MESSAGE);
+        double num1 = Double.parseDouble(strNum1);  // Convert string input to double
+        strNotification += strNum1 + " and ";
+
+        strNum2 = JOptionPane.showInputDialog(null, "Please input the second number:", "Input the second number", JOptionPane.QUESTION_MESSAGE);
+        double num2 = Double.parseDouble(strNum2);  // Convert string input to double
+        strNotification += strNum2;
 
         double sum = num1 + num2;
-        System.out.println("Tong cua 2 so la: " + sum);
-
         double difference = num1 - num2;
-        System.out.println("Hieu cua so thu 1 tru di so thu 2 la: " + difference);
-
         double product = num1 * num2;
-        System.out.println("Tich cua 2 so la:" + product);
+        double quotient = num2 != 0 ? num1 / num2 : Double.NaN; // Handle division by zero
 
-        if (num2 != 0) {
-            double quotient = num1 / num2;
-            System.out.println("Thuong cua so thu 1 chia cho so thu 2 la:" + quotient);
-        } else {
-            System.out.println("Khong co phep chia cho 0");
-        }
+        String result = strNotification + "\n" +
+                       "Sum: " + sum + "\n" +
+                       "Difference: " + difference + "\n" +
+                       "Product: " + product + "\n" +
+                       "Quotient: " + (quotient == Double.NaN ? "Cannot divide by zero" : quotient);
 
-        scanner.close();
+        JOptionPane.showMessageDialog(null, result, "Calculation Results", JOptionPane.INFORMATION_MESSAGE);
+
+        System.exit(0);
     }
 }
