@@ -20,10 +20,10 @@ public class Calculator {
         double quotient = num2 != 0 ? num1 / num2 : Double.NaN; // Handle division by zero
 
         String result = strNotification + "\n" +
-                       "Sum: " + sum + "\n" +
-                       "Difference: " + difference + "\n" +
-                       "Product: " + product + "\n" +
-                       "Quotient: " + (quotient == Double.NaN ? "Cannot divide by zero" : quotient);
+                       "Tong: " + sum + "\n" +
+                       "Hieu: " + difference + "\n" +
+                       "Tich: " + product + "\n" +
+                       "Thuong: " + (quotient == Double.NaN ? "Cannot divide by zero" : quotient);
 
         JOptionPane.showMessageDialog(null, result, "Calculation Results", JOptionPane.INFORMATION_MESSAGE);
 
