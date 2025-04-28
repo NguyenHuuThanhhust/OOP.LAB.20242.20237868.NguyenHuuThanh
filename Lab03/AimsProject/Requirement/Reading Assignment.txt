@@ -1,0 +1,24 @@
+1. Ưu điểm của Đa hình (Polymorphism)
+-Đa hình giúp chương trình có thể xử lý các đối tượng khác nhau theo cách thống nhất.
+-Giảm sự phụ thuộc vào các lớp con cụ thể, làm cho chương trình linh hoạt và dễ bảo trì hơn.
+-Dễ dàng mở rộng: chỉ cần thêm lớp mới mà không phải thay đổi nhiều chỗ trong chương trình.
+-Tăng khả năng tái sử dụng mã lệnh.
+-Cho phép sử dụng một giao diện chung để thao tác với nhiều loại đối tượng khác nhau.
+
+2. Kế thừa (Inheritance) giúp đạt được Đa hình trong Java như thế nào?
+-Kế thừa cho phép lớp con thừa hưởng t-huộc tính và phương thức từ lớp cha.
+-Khi các lớp con ghi đè (override) phương thức từ lớp cha, chương trình có thể gọi phương thức đó thông qua tham chiếu lớp cha.
+-Dựa trên kiểu thực sự của đối tượng lúc chạy (runtime), phương thức phù hợp của lớp con sẽ được thực thi.
+-Nhờ có kế thừa, ta mới có thể gọi cùng một phương thức nhưng hành vi lại khác nhau tùy đối tượng, chính là hiện tượng đa hình.
+
+3. Sự khác nhau giữa Đa hình (Polymorphism) và Kế thừa (Inheritance) trong Java
+1>Về mục đích:
+-Kế thừa: Tái sử dụng mã nguồn và mở rộng chức năng giữa các lớp.
+-Đa hình: Thay đổi hành vi của đối tượng trong lúc chương trình đang chạy (runtime).
+2>Về bản chất:
+-Kế thừa: Thiết lập mối quan hệ giữa lớp cha và lớp con (extends).
+-Đa hình: Thực hiện hành vi khác nhau qua ghi đè phương thức (overriding) hoặc giao diện (interface).
+
+Về cách thực hiện trong Java:
+-Kế thừa: Sử dụng từ khóa extends để kế thừa từ một lớp cha.
+-Đa hình: Ghi đè phương thức (toString(), play(),...) hoặc thực hiện thông qua interface.
