@@ -1,4 +1,5 @@
 package hust.soict.hedspi.aims;
+
 import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.store.Store;
 import hust.soict.hedspi.aims.media.DigitalVideoDisc;
@@ -64,18 +65,30 @@ public class Aims {
         boolean running = true;
         while (running) {
             showMenu();
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Clear buffer
+            int choice;
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                choice = -1; 
+            }
 
             switch (choice) {
-                case 1 : viewStore(scanner, store, cart);
-                case 2 : updateStore(scanner, store);
-                case 3 : viewCart(scanner, cart);
-                case 0 : {
+                case 1:
+                    viewStore(scanner, store, cart);
+                    break;
+                case 2:
+                    updateStore(scanner, store);
+                    break;
+                case 3:
+                    viewCart(scanner, cart);
+                    break;
+                case 0:
                     running = false;
                     System.out.println("Exiting AIMS. Goodbye!");
-                }
-                default : System.out.println("Invalid choice. Try again.");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Try again.");
+                    break;
             }
         }
 
@@ -83,11 +96,33 @@ public class Aims {
     }
 
     public static void viewStore(Scanner scanner, Store store, Cart cart) {
+        System.out.println("\n--- STORE CONTENT ---");
+        store.displayStore();
+        System.out.println("---------------------\n");
     }
 
     public static void updateStore(Scanner scanner, Store store) {
+        System.out.println("\n--- UPDATE STORE ---");
+        System.out.print("Enter title: ");
+        String title = scanner.nextLine();
+        System.out.print("Enter category: ");
+        String category = scanner.nextLine();
+        System.out.print("Enter director: ");
+        String director = scanner.nextLine();
+        System.out.print("Enter length: ");
+        int length = Integer.parseInt(scanner.nextLine());
+        System.out.print("Enter cost: ");
+        float cost = Float.parseFloat(scanner.nextLine());
+
+        DigitalVideoDisc dvd = new DigitalVideoDisc(title, category, director, length, cost);
+        store.addMedia(dvd);
+
+        System.out.println("The DVD has been added to the store.\n");
     }
 
     public static void viewCart(Scanner scanner, Cart cart) {
+        System.out.println("\n--- CURRENT CART ---");
+        cart.displayCart();
+        System.out.println("---------------------\n");
     }
 }
